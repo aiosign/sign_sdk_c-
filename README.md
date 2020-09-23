@@ -5,9 +5,10 @@
 - 1.您需要去大众签章开放平台注册一个开发者账号，并且申请一个应用，当您的应用经过审核之后，您将获得一个appid和appsecret，这两个参数决定了您在开放平台的身份标识，只有获得了这两个参数，您才有资格调用开放平台的api接口。
 - 2.您需要凭借appid和appsecret先获取token，有些接口还需要传递签名值(后续会详细介绍),才可调用开放平台的api接口，签名算法已封装在DLL里面。
 - 3.SDK使用Wininet.lib对HTTPS网络请求进行封装。
-使用说明：
-1.您可以从github上直接下载的sdk，通过提供动态库SignHttp.dll，静态库SignHttp.lib和头文件SignHttp.h供外部使用。其中sdk里面还包含几个依赖库，主要是封装签名算法时候用到。
-2.以下这个代码示例向您展示了调用 Sign SDK 过程：
+### 使用说明：
+- 1.您可以从github上直接下载的sdk，通过提供动态库SignHttp.dll，静态库SignHttp.lib和头文件SignHttp.h供外部使用。其中sdk里面还包含几个依赖库，主要是封装签名算法时候用到。
+- 2.以下这个代码示例向您展示了调用 Sign SDK 过程：
+```c++
 //注册个人信息并申请证书
 void DataEncToolDlg::RegisterPersonal()
 {
@@ -32,22 +33,27 @@ void DataEncToolDlg::RegisterPersonal()
 	ui->EnctextEdit->clear();
 	ui->EnctextEdit->setText(str2qstr(strData));
 }
+```
 
 SDK中都有相关接口的测试用例，都已经经过相关测试，您可以修改参数执行相关方法（可以参考QT写的DEMO版本）。
 
-额外说明：
-1.在初始化之前先调用记录日志接口
+### 额外说明：
+- 1.在初始化之前先调用记录日志接口
+```c++
 /*初始化日志*/
 SIGNHTTP int Http_InitLog(const char* szPath,const char* szFilename);
-
-2.签名算法
+```
+- 2.签名算法
 开放平台api接口的所有的post请求并且请求头为json的接口添加了签名值的校验，签名算法的机制如下： 比如你的请求json为：
+```json
 {
 "app_id": "710510245885661184",
 "app_secret": "UJhgoFkMShBtLXcqlC",
 "grant_type": "client_credentials"
 }
+```
 首先对字符串做去空格化处理（包括\r\n），然后对字符串做HmacSHA256算法，秘钥为您的appsecret，编码一定要为UTF-8，否则可能会导致获取的加密值不同，然后转为base64编码的字符串的加密字符串，最后对该字符串做MD5摘要，最后的字符串将作为最终的签名值。 签名的工具类代码如下：
+```c++
 namespace utils
 {
 	void hmac_sha256(const std::string &canonical_string,const char *secret_key,std::string &encodedStr)
@@ -134,3 +140,4 @@ std::string CHttp::GetSignData(const std::string & strSrc, const std::string& se
 	md5(szbase64,strRetData);
 	return std::move(strRetData);
 }
+```

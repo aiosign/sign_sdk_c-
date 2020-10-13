@@ -6,32 +6,23 @@
 - 2.您需要凭借appid和appsecret先获取token，有些接口还需要传递签名值(后续会详细介绍),才可调用开放平台的api接口，签名算法已封装在DLL里面。
 - 3.SDK使用Wininet.lib对HTTPS网络请求进行封装。
 ### 使用说明：
-- 1.您可以从github上直接下载的sdk，通过提供动态库SignHttp.dll，静态库SignHttp.lib和头文件SignHttp.h供外部使用。其中sdk里面还包含几个依赖库，主要是封装签名算法时候用到。
+- 1.您可以从github上直接下载的sdk，通过提供动态库SignHttp.dll，静态库SignHttp.lib和头文件SignHttp.h供外部使用，还包含数据结构体CommonData.h，RequestDefine.h，ResponseDefine.h。其中sdk里面还包含几个依赖库，主要是封装签名算法时候用到。
 - 2.以下这个代码示例向您展示了调用 Sign SDK 过程：
 ```c++
 //注册个人信息并申请证书
 void DataEncToolDlg::RegisterPersonal()
 {
-	QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	QString strUrl = strBaseUrl + QString("/user/personal/register?access_token=%1").arg(m_strToken);
-	
-	//填充json数据
-	Json::Value root;
-	Json::FastWriter write;
-	root["user_name"] = "测试003";
-	root["area_code"] = "370101";
-	root["phone"] = "15118014986";
-	root["id_type"] = "111";
-	root["id_number"] = "370101198001016111";
-	root["mail"] = "1562310354@qq.com";
-	root["description"] = "测试003";
-	std::string strJson = write.write(root);
+	PersonalUserInfo RegisterInfo;
+	RegisterInfo.strUserName = "测试005";
+	RegisterInfo.strAreaCode = "370101";
+	RegisterInfo.strPhone = "15118014986";
+	RegisterInfo.strTypeId = "111";
+	RegisterInfo.strNumberId = "370101198001019996";
+	RegisterInfo.strMail = "1562310354@qq.com";
+	RegisterInfo.strDescription = "测试005";
 
-	string strData;
-	//调用注册个人信息并申请证书接口
-	Http_RegisterPersonalInfo(strUrl.toStdString().c_str(), /*"ZBvjjigCFjizUwdDny"*/m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	ui->EnctextEdit->clear();
-	ui->EnctextEdit->setText(str2qstr(strData));
+	RegisterResponse RegisterResponse;
+	Http_RegisterPersonalInfo(&RegisterInfo, &RegisterResponse);
 }
 ```
 
@@ -40,8 +31,8 @@ SDK中都有相关接口的测试用例，都已经经过相关测试，您可�
 ### 额外说明：
 - 1.在初始化之前先调用记录日志接口
 ```c++
-/*初始化日志*/
-SIGNHTTP int Http_InitLog(const char* szPath,const char* szFilename);
+/*初始化SDK*/
+SIGNHTTP int Http_Init();
 ```
 - 2.签名算法
 开放平台api接口的所有的post请求并且请求头为json的接口添加了签名值的校验，签名算法的机制如下： 比如你的请求json为：

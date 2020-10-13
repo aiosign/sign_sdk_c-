@@ -301,93 +301,17 @@ void DataEncToolDlg::sign(const QString & strData, const QString& strKey, QStrin
 
 void DataEncToolDlg::GetToken()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + "/oauth/token";
-	//
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["app_id"] = "748489100734648320";
-	////root["app_secret"] = "ZBvjjigCFjizUwdDny";
-	////root["grant_type"] = "client_credentials";
-
-	////std::string strJson = write.write(root);
-
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-
-	//string strData;
-	//Http_GetToken(strUrl.toStdString().c_str(), strJson.c_str(), strData);
-
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
-
-	//Json::Reader reader(Json::Features::strictMode());
-	//Json::Value json_object;
-	//if (!reader.parse(strData.c_str(), json_object))
-	//{
-	//	return;
-	//}
-	//Json::Value fileData = json_object["data"];
-	//if (fileData.isNull() || !fileData.isObject())
-	//{
-	//	return;
-	//}
-	//string strToken = fileData.get("access_token", "").asString();
-	//m_strToken = str2qstr(strToken);
-
-	//Json::Value json_object1;
-	//if (!reader.parse(strJson.c_str(), json_object1))
-	//{
-	//	return;
-	//}
-	//string strAppSecret = json_object1.get("app_secret", "").asString();
-	//m_strAppSecret = str2qstr(strAppSecret);
-	//m_bEnable = true;
 	AppInfo AppInfo;
 	AppInfo.strAppID = "748489100734648320";
 	AppInfo.strAppSecret = "ZBvjjigCFjizUwdDny";
 	AppInfo.strGrantType = "client_credentials";
 
-	//string strData;
 	TokenResponse TokenResponse;
 	Http_GetToken(&AppInfo, &TokenResponse);
-
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
 }
 
 void DataEncToolDlg::RegisterPersonal()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/user/personal/register?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["user_name"] = "测试003";
-	////root["area_code"] = "370101";
-	////root["phone"] = "15118014986";
-	////root["id_type"] = "111";
-	////root["id_number"] = "370101198001016111";
-	////root["mail"] = "1562310354@qq.com";
-	////root["description"] = "测试003";
-
-	////std::string strJson = write.write(root);
-
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-
-	//string strData;
-	//Http_RegisterPersonalInfo(strUrl.toStdString().c_str(), /*"ZBvjjigCFjizUwdDny"*/m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
 	PersonalUserInfo RegisterInfo;
 	RegisterInfo.strUserName = "测试005";
 	RegisterInfo.strAreaCode = "370101";
@@ -403,26 +327,6 @@ void DataEncToolDlg::RegisterPersonal()
 
 void DataEncToolDlg::GetPersonalUserInfo()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/user/personal/userinfo?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["user_id"] = "00753189563652526080";
-	////std::string strJson = write.write(root);
-
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-
-	//string strData;
-	//Http_GetPersonalUserInfo(strUrl.toStdString().c_str(), /*"ZBvjjigCFjizUwdDny"*/m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
-
 	UserIdInfoReq UserInfoReqInfo;
 	UserInfoReqInfo.strUserId = "00764127286663991296";
 
@@ -432,26 +336,6 @@ void DataEncToolDlg::GetPersonalUserInfo()
 
 void DataEncToolDlg::PersonalLock()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/user/personal/lock?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["user_id"] = "00753189563652526080";
-	////std::string strJson = write.write(root);
-
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-
-	//string strData;
-	//Http_PersonalLock(strUrl.toStdString().c_str(), /*"ZBvjjigCFjizUwdDny"*/m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
-
 	UserIdInfoReq UserInfoReqInfo;
 	UserInfoReqInfo.strUserId = "00764127286663991296";
 
@@ -461,25 +345,6 @@ void DataEncToolDlg::PersonalLock()
 
 void DataEncToolDlg::PersonalUnlock()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/user/personal/unlock?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["user_id"] = "00753189563652526080";
-	////std::string strJson = write.write(root);
-
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-
-	//string strData;
-	//Http_PersonalUnlock(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
 	UserIdInfoReq UserInfoReqInfo;
 	UserInfoReqInfo.strUserId = "00764127286663991296";
 
@@ -489,40 +354,6 @@ void DataEncToolDlg::PersonalUnlock()
 
 void DataEncToolDlg::RegisterCompany()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/user/company/register?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["user_name"] = "测试西乡塘法人用户003";
-	////root["area_code"] = "370101";
-	////root["unit_type"] = "03";
-	////root["credi_code"] = "913700006135889860";
-	////root["legal_name"] = "测试法人用户";
-	////root["legal_id_number"] = "371314288798766356";
-	////root["legal_id_type"] = "111";
-	////root["legal_phone"] = "15118014986";
-	////root["legal_email"] = "12388373@qq.com";
-	////root["agent_name"] = "测试经办人";
-	////root["agent_id_number"] = "326565678765465789";
-	////root["agent_id_type"] = "111";
-	////root["agent_phone"] = "15118014986";
-	////root["agent_email"] = "18762873638@qq.com";
-	////root["description"] = "测试企业用户002";
-
-	////std::string strJson = write.write(root);
-
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-
-	//string strData;
-	//Http_RegisterCompanyInfo(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
 	CompanyInfo CompanyInfo;
 	CompanyInfo.strUserName = "测试西乡塘法人用户003";
 	CompanyInfo.strAreaCode = "370101";
@@ -547,25 +378,6 @@ void DataEncToolDlg::RegisterCompany()
 
 void DataEncToolDlg::GetCompanyUserInfo()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/user/company/userinfo?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["user_id"] = "10753989794048659456";
-	////std::string strJson = write.write(root);
-
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-
-	//string strData;
-	//Http_GetCompanyUserInfo(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
 	UserIdInfoReq UserIdInfoReq;
 	UserIdInfoReq.strUserId = "10753989794048659456";
 
@@ -575,24 +387,6 @@ void DataEncToolDlg::GetCompanyUserInfo()
 
 void DataEncToolDlg::CompanyLock()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/user/company/lock?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["user_id"] = "10753989794048659456";
-	////std::string strJson = write.write(root);
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-
-	//string strData;
-	//Http_CompanyLock(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
 	UserIdInfoReq UserIdInfoReq;
 	UserIdInfoReq.strUserId = "10753989794048659456";
 
@@ -602,25 +396,6 @@ void DataEncToolDlg::CompanyLock()
 
 void DataEncToolDlg::CompanyUnlock()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/user/company/unlock?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["user_id"] = "10753989794048659456";
-	////std::string strJson = write.write(root);
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-
-	//string strData;
-	//Http_CompanyUnlock(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
-
 	UserIdInfoReq UserIdInfoReq;
 	UserIdInfoReq.strUserId = "10753989794048659456";
 
@@ -630,38 +405,6 @@ void DataEncToolDlg::CompanyUnlock()
 
 void DataEncToolDlg::UploadFileAndSealInfo()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/file/upload?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-
-	////root["file_path"] = "F:\\Projects\\SignHttp\\4501070057171.png";
-	////root["file_name"] = "4501070057171.png";
-	////root["file_type"] = "impression";
-	////root["user_id"] = "00753189563652526080";
-
-	////Json::Value sealInfo;
-	////sealInfo["seal_name"] = "测试西乡塘流程数据修改财务专用章01";
-	////sealInfo["seal_type"] = "02";
-	////sealInfo["size"] = "38*38";
-	////sealInfo["description"] = "测试";
-	////root["sealInfo"] = sealInfo;
-
-	////std::string strJson = write.write(root);
-
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-
-	//string strData;
-	//Http_UploadFileAndSealInfo(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
-
 	UploadAndAddSealInfoReq UploadAndAddSealInfoReq;
 	UploadAndAddSealInfoReq.FileInfo.strFilePath = "F:\\Projects\\SignHttp\\4501070057171.png";
 	UploadAndAddSealInfoReq.FileInfo.strFileName = "4501070057171.png";
@@ -681,29 +424,6 @@ void DataEncToolDlg::UploadFileAndSealInfo()
 
 void DataEncToolDlg::UploadFileAndContractInfo()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/file/upload?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["file_path"] = "E:\\testcon.pdf";
-	////root["file_name"] = "testcon.pdf";
-	////root["file_type"] = "contract";
-	////root["user_id"] = "00753189563652526080";
-	////std::string strJson = write.write(root);
-
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-
-	//string strData;
-	//Http_UploadFileAndContractInfo(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
-
 	FileInfo pDataIn;
 	pDataIn.strFilePath = "E:\\testcon.pdf";
 	pDataIn.strFileName = "testcon.pdf";
@@ -716,29 +436,6 @@ void DataEncToolDlg::UploadFileAndContractInfo()
 
 void DataEncToolDlg::UploadFileAndTemplateInfo()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/file/upload?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["file_path"] = "E:\\textTemplate1.pdf";
-	////root["file_name"] = "textTemplate1.pdf";
-	////root["file_type"] = "template";
-	////root["user_id"] = "00753189563652526080";
-	////std::string strJson = write.write(root);
-
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-
-	//string strData;
-	//Http_UploadFileAndTemplateInfo(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
-
 	FileInfo pDataIn;
 	pDataIn.strFilePath = "E:\\textTemplate1.pdf";
 	pDataIn.strFileName = "textTemplate1.pdf";
@@ -751,23 +448,6 @@ void DataEncToolDlg::UploadFileAndTemplateInfo()
 
 void DataEncToolDlg::DownFile()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	////QString strUrl = strBaseUrl + QString("/file/download?access_token=%1&fileId=551b63d5dd85b160d599c0117317460a").arg(m_strToken);
-
-	////int nRet = Http_DownloadFile(strUrl.toStdString().c_str(),"D:\\textco111.pdf");
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-	//std::string strPath = qstr2str(ui->EnctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("保存路径！"));
-	//	return;
-	//}
-	//int nRet = Http_DownloadFile(strJson.c_str(), strPath.c_str());
 	DownloadFileInfo pDataIn;
 	pDataIn.strFileId = "fce78fb19a24b9f6538d969b78889105";
 	pDataIn.strFilePath = "D:\\textco111.pdf";
@@ -776,47 +456,6 @@ void DataEncToolDlg::DownFile()
 
 void DataEncToolDlg::SingleTemplateSign()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/sign/template/single?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["template_id"] = "45327f42e3388aa0baa10ac29b6bf8af";
-
-	////Json::Value fields;
-
-	////Json::Value sign_params;
-	////Json::Value item;
-	////item["seal_id"] = "c1ae0a73077c69e93860d7a25a974e10";
-	////item["sign_key"] = "sign1";
-	////item["user_id"] = "00753189563652526080";
-	////item["width"] = 113;
-	////item["height"] = 113;
-	////sign_params.append(item);
-
-	////Json::Value text_params;
-	////Json::Value item1;
-	////item1["key"] = "name1";
-	////item1["value"] = "测试";
-	////text_params.append(item1);
-
-	////fields["sign_params"] = sign_params;
-	////fields["text_params"] = text_params;
-
-	////root["sign_field"] = fields;
-
-	////std::string strJson = write.write(root);
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-	//string strData;
-	//Http_SingleTemplateSign(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
-
 	SingleTemplateSignReq pDataIn;
 	pDataIn.strTemplateId = "45327f42e3388aa0baa10ac29b6bf8af";
 
@@ -839,73 +478,6 @@ void DataEncToolDlg::SingleTemplateSign()
 
 void DataEncToolDlg::BatchTemplateSign()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/sign/template/batch?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["template_id"] = "45327f42e3388aa0baa10ac29b6bf8af";
-
-	////Json::Value templates;
-
-	////Json::Value templatesItem;
-	////Json::Value sign_params;
-	////Json::Value item;
-	////item["seal_id"] = "c1ae0a73077c69e93860d7a25a974e10";
-	////item["sign_key"] = "sign1";
-	////item["user_id"] = "00753189563652526080";
-	////item["width"] = 113;
-	////item["height"] = 113;
-	////sign_params.append(item);
-
-	////Json::Value text_params;
-	////Json::Value item1;
-	////item1["key"] = "name1";
-	////item1["value"] = "测试";
-	////text_params.append(item1);
-
-	////templatesItem["custom_id"] = "12";
-	////templatesItem["sign_params"] = sign_params;
-	////templatesItem["text_params"] = text_params;
-
-	////Json::Value templatesItem1;
-	////Json::Value sign_params1;
-	////Json::Value item3;
-	////item3["seal_id"] = "c1ae0a73077c69e93860d7a25a974e10";
-	////item3["sign_key"] = "sign2";
-	////item3["user_id"] = "00753189563652526080";
-	////item3["width"] = 113;
-	////item3["height"] = 113;
-	////sign_params1.append(item3);
-
-	////Json::Value text_params1;
-	////Json::Value item4;
-	////item4["key"] = "name2";
-	////item4["value"] = "测试";
-	////text_params1.append(item4);
-
-
-	////templatesItem1["custom_id"] = "13";
-	////templatesItem1["sign_params"] = sign_params1;
-	////templatesItem1["text_params"] = text_params1;
-
-	////templates.append(templatesItem);
-	////templates.append(templatesItem1);
-
-	////root["batch_templates"] = templates;
-
-	////std::string strJson = write.write(root);
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-	//string strData;
-	//Http_BatchTemplateSign(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
-
 	BatchTemplateSignReq pDataIn;
 	pDataIn.strTemplateId = "45327f42e3388aa0baa10ac29b6bf8af";
 
@@ -957,39 +529,6 @@ void DataEncToolDlg::BatchTemplateSign()
 
 void DataEncToolDlg::SignCommon()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/sign/common?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["contract_id"] = "50a0c4ceb5f9b36a49b761decf911c14";
-	////root["user_id"] = "00753189563652526080";
-	////root["remark"] = "test";
-
-	////Json::Value fields;
-	////Json::Value item;
-	////item["height"] = 113;
-	////item["horizontal"] = 150;
-	////item["page_number"] = 2;
-	////item["seal_id"] = "c1ae0a73077c69e93860d7a25a974e10";
-	////item["vertical"] = 100;
-	////item["width"] = 113;
-	////fields.append(item);
-
-	////root["fields"] = fields;
-
-	////std::string strJson = write.write(root);
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-	//string strData;
-	//Http_SignCommon(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
-
 	SignCommonReq pDataIn;
 	pDataIn.strContractId = "ba7b0b35174ab82395d29b47d4ff90b6";
 	pDataIn.strUserId = "00753189563652526080";
@@ -1010,31 +549,6 @@ void DataEncToolDlg::SignCommon()
 
 void DataEncToolDlg::SignKeywordSign()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/sign/keywordSign?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["contract_id"] = "50a0c4ceb5f9b36a49b761decf911c14";
-	////root["user_id"] = "00753189563652526080";
-	////root["keyword"] = "11";
-	////root["height"] = 113;
-	////root["sign_all"] = false;
-	////root["seal_id"] = "c1ae0a73077c69e93860d7a25a974e10";
-	////root["width"] = 113;
-	////std::string strJson = write.write(root);
-
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-
-	//string strData;
-	//Http_SignKeywordSign(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
 	SignKeywordReq pDataIn;
 	pDataIn.strContractId = "ba7b0b35174ab82395d29b47d4ff90b6";
 	pDataIn.strUserId = "00753189563652526080";
@@ -1050,38 +564,6 @@ void DataEncToolDlg::SignKeywordSign()
 
 void DataEncToolDlg::SignMeetingSingle()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/sign/meeting/single?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["contract_id"] = "50a0c4ceb5f9b36a49b761decf911c14";
-
-	////Json::Value fields;
-	////Json::Value item;
-	////item["sign_width"] = 113;
-	////item["sign_top"] = 33;
-	////item["page_num"] = 3;
-	////item["seal_id"] = "c1ae0a73077c69e93860d7a25a974e10";
-	////item["sign_height"] = 113;
-	////item["sign_left"] = 12;
-	////item["user_id"] = "00753189563652526080";
-	////fields.append(item);
-
-	////root["sign_details"] = fields;
-
-	////std::string strJson = write.write(root);
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-
-	//string strData;
-	//Http_SignMeetingSingle(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
 	SignMeetingSingleReq pDataIn;
 	pDataIn.strContractId = "ba7b0b35174ab82395d29b47d4ff90b6";
 
@@ -1101,46 +583,6 @@ void DataEncToolDlg::SignMeetingSingle()
 
 void DataEncToolDlg::SingleTemplateSignEvent()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/event_cert_sign/template/single?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["template_id"] = "45327f42e3388aa0baa10ac29b6bf8af";
-
-	////Json::Value fields;
-
-	////Json::Value sign_params;
-	////Json::Value item;
-	////item["seal_id"] = "c1ae0a73077c69e93860d7a25a974e10";
-	////item["sign_key"] = "sign1";
-	////item["user_id"] = "00753189563652526080";
-	////item["width"] = 113;
-	////item["height"] = 113;
-	////sign_params.append(item);
-
-	////Json::Value text_params;
-	////Json::Value item1;
-	////item1["key"] = "name1";
-	////item1["value"] = "测试";
-	////text_params.append(item1);
-
-	////fields["sign_params"] = sign_params;
-	////fields["text_params"] = text_params;
-
-	////root["sign_field"] = fields;
-
-	////std::string strJson = write.write(root);
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-	//string strData;
-	//Http_SingleTemplateSignEvent(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
 	SingleTemplateSignReq pDataIn;
 	pDataIn.strTemplateId = "45327f42e3388aa0baa10ac29b6bf8af";
 
@@ -1163,72 +605,6 @@ void DataEncToolDlg::SingleTemplateSignEvent()
 
 void DataEncToolDlg::BatchTemplateSignEvent()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/event_cert_sign/template/batch?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["template_id"] = "45327f42e3388aa0baa10ac29b6bf8af";
-
-	////Json::Value templates;
-
-	////Json::Value templatesItem;
-	////Json::Value sign_params;
-	////Json::Value item;
-	////item["seal_id"] = "c1ae0a73077c69e93860d7a25a974e10";
-	////item["sign_key"] = "sign1";
-	////item["user_id"] = "00753189563652526080";
-	////item["width"] = 113;
-	////item["height"] = 113;
-	////sign_params.append(item);
-
-	////Json::Value text_params;
-	////Json::Value item1;
-	////item1["key"] = "name1";
-	////item1["value"] = "测试";
-	////text_params.append(item1);
-
-	////templatesItem["custom_id"] = "12";
-	////templatesItem["sign_params"] = sign_params;
-	////templatesItem["text_params"] = text_params;
-
-	////Json::Value templatesItem1;
-	////Json::Value sign_params1;
-	////Json::Value item3;
-	////item3["seal_id"] = "c1ae0a73077c69e93860d7a25a974e10";
-	////item3["sign_key"] = "sign2";
-	////item3["user_id"] = "00753189563652526080";
-	////item3["width"] = 113;
-	////item3["height"] = 113;
-	////sign_params1.append(item3);
-
-	////Json::Value text_params1;
-	////Json::Value item4;
-	////item4["key"] = "name2";
-	////item4["value"] = "测试";
-	////text_params1.append(item4);
-
-
-	////templatesItem1["custom_id"] = "13";
-	////templatesItem1["sign_params"] = sign_params1;
-	////templatesItem1["text_params"] = text_params1;
-
-	////templates.append(templatesItem);
-	////templates.append(templatesItem1);
-
-	////root["batch_templates"] = templates;
-
-	////std::string strJson = write.write(root);
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-	//string strData;
-	//Http_BatchTemplateSignEvent(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
 	BatchTemplateSignReq pDataIn;
 	pDataIn.strTemplateId = "45327f42e3388aa0baa10ac29b6bf8af";
 
@@ -1280,38 +656,6 @@ void DataEncToolDlg::BatchTemplateSignEvent()
 
 void DataEncToolDlg::SignCommonEvent()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/event_cert_sign/common?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["contract_id"] = "50a0c4ceb5f9b36a49b761decf911c14";
-	////root["user_id"] = "00753189563652526080";
-	////root["remark"] = "test";
-
-	////Json::Value fields;
-	////Json::Value item;
-	////item["height"] = 113;
-	////item["horizontal"] = 150;
-	////item["page_number"] = 2;
-	////item["seal_id"] = "c1ae0a73077c69e93860d7a25a974e10";
-	////item["vertical"] = 100;
-	////item["width"] = 113;
-	////fields.append(item);
-
-	////root["fields"] = fields;
-
-	////std::string strJson = write.write(root);
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-	//string strData;
-	//Http_SignCommonEvent(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
 	SignCommonReq pDataIn;
 	pDataIn.strContractId = "ba7b0b35174ab82395d29b47d4ff90b6";
 	pDataIn.strUserId = "00753189563652526080";
@@ -1332,32 +676,6 @@ void DataEncToolDlg::SignCommonEvent()
 
 void DataEncToolDlg::SignKeywordSignEvent()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/event_cert_sign/keywordSign?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["contract_id"] = "50a0c4ceb5f9b36a49b761decf911c14";
-	////root["user_id"] = "00753189563652526080";
-	////root["keyword"] = "11";
-	////root["height"] = 113;
-	////root["sign_all"] = false;
-	////root["seal_id"] = "c1ae0a73077c69e93860d7a25a974e10";
-	////root["width"] = 113;
-
-	////std::string strJson = write.write(root);
-
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-
-	//string strData;
-	//Http_SignKeywordSignEvent(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
 	SignKeywordReq pDataIn;
 	pDataIn.strContractId = "ba7b0b35174ab82395d29b47d4ff90b6";
 	pDataIn.strUserId = "00753189563652526080";
@@ -1373,38 +691,6 @@ void DataEncToolDlg::SignKeywordSignEvent()
 
 void DataEncToolDlg::SignMeetingSingleEvent()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/event_cert_sign/meeting/single?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["contract_id"] = "50a0c4ceb5f9b36a49b761decf911c14";
-
-	////Json::Value fields;
-	////Json::Value item;
-	////item["sign_width"] = 113;
-	////item["sign_top"] = 33;
-	////item["page_num"] = 3;
-	////item["seal_id"] = "c1ae0a73077c69e93860d7a25a974e10";
-	////item["sign_height"] = 113;
-	////item["sign_left"] = 12;
-	////item["user_id"] = "00753189563652526080";
-	////fields.append(item);
-
-	////root["sign_details"] = fields;
-
-	////std::string strJson = write.write(root);
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-	//string strData;
-	//Http_SignMeetingSingleEvent(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
-
 	SignMeetingSingleReq pDataIn;
 	pDataIn.strContractId = "ba7b0b35174ab82395d29b47d4ff90b6";
 
@@ -1424,80 +710,6 @@ void DataEncToolDlg::SignMeetingSingleEvent()
 
 void DataEncToolDlg::SignOneStepAll()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/event_cert_sign/directSign?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-
-	////QFile fichero("F:\\Projects\\SignHttp\\test03.pdf", this);
-	////QByteArray qbFileData;
-	////if (fichero.open(QIODevice::ReadOnly))
-	////{
-	////	qbFileData = fichero.readAll().toBase64();
-	////}
-	////fichero.close();
-
-	////QFile fichero1("F:\\Projects\\SignHttp\\4501070057171.png", this);
-	////QByteArray qbMouleData;
-	////if (fichero1.open(QIODevice::ReadOnly))
-	////{
-	////	qbMouleData = fichero1.readAll().toBase64();
-	////}
-	////fichero1.close();
-
-	////root["user_name"] = "测试用户003";
-	////root["id_number"] = "370101198001016736";
-	////root["user_type"] = "1";
-	////root["contract_file_content"] = qbFileData.data();
-	////
-
-	////Json::Value fields;
-	////Json::Value item;
-	////item["seal_height"] = 113;
-	////item["horizontal"] = 150;
-	////item["page_num"] = 2;
-	////item["seal_file_content"] = qbMouleData.data();
-	////item["vertical"] = 130;
-	////item["seal_width"] = 113;
-	////fields.append(item);
-
-	////root["sign_fields"] = fields;
-
-	////std::string strJson = write.write(root);
-
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-	//string strData;
-	//Http_SignOneStepAll(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-
-	//Json::Reader reader(Json::Features::strictMode());
-	//Json::Value json_object;
-	//if (!reader.parse(strData.c_str(), json_object))
-	//{
-	//	return;
-	//}
-	//Json::Value fileData = json_object["data"];
-	//if (fileData.isNull() || !fileData.isObject())
-	//{
-	//	return;
-	//}
-	//string strFileData = fileData.get("contract_file", "").asString();
-	//const char* szFileData = strFileData.c_str();
-	//QByteArray qbFileData2(szFileData);
-	//QFile fichero2("F:\\Projects\\SignHttp\\111.pdf", this);
-	//if (fichero2.open(QIODevice::WriteOnly))
-	//{
-	//	fichero2.write(QByteArray::fromBase64(qbFileData2));
-	//}
-	//fichero2.close();
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
-
 	QFile fichero("F:\\Projects\\SignHttp\\test03.pdf", this);
 	QByteArray qbFileData;
 	if (fichero.open(QIODevice::ReadOnly))
@@ -1535,23 +747,6 @@ void DataEncToolDlg::SignOneStepAll()
 
 void DataEncToolDlg::SignCheckCommon()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/sign/check/common?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["file_id"] = "14cf319c1f06b6306592eb9013788f8a";
-	////std::string strJson = write.write(root);
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-	//string strData;
-	//Http_SignCheckCommon(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
 	SignCheckCommonReq pDataIn;
 	pDataIn.strFileId = "14cf319c1f06b6306592eb9013788f8a";
 
@@ -1561,26 +756,6 @@ void DataEncToolDlg::SignCheckCommon()
 
 void DataEncToolDlg::SignCheckFile()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-
-	//Json::Value root;
-	//Json::FastWriter write;
-
-	//QString strUrl = m_strUrl + QString("/sign/check/file?access_token=%1").arg(m_strToken);
-	////QString strPath = "D:\\11111111111111.pdf";
-
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-
-	//string strData;
-	//Http_SignCheckFile(strUrl.toStdString().c_str(), "", /*strPath.toStdString().c_str()*/strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
-
 	SignCheckFileReq pDataIn;
 	pDataIn.strFilePath = "D:\\11111111111111.pdf";
 
@@ -1590,25 +765,6 @@ void DataEncToolDlg::SignCheckFile()
 
 void DataEncToolDlg::GetCertinfo()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/cert/certinfo?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["prepare_id"] = "";
-	////std::string strJson = write.write(root);
-
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-	//string strData;
-	//Http_GetCertinfo(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
-
 	CertInfoReq pDataIn;
 	pDataIn.strPrepareId = "42f13ccf802f4c0da1d2415e319fafcf";
 
@@ -1618,24 +774,6 @@ void DataEncToolDlg::GetCertinfo()
 
 void DataEncToolDlg::GetDownloadReportFile()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	////QString strUrl = strBaseUrl + QString("/file/downloadReport?access_token=%1&fileId=14cf319c1f06b6306592eb9013788f8a").arg(m_strToken);
-
-	////int nRet = Http_DownloadFile(strUrl.toStdString().c_str(), "D:\\22222222222.pdf");
-
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-	//std::string strPath = qstr2str(ui->EnctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("保存路径！"));
-	//	return;
-	//}
-	//int nRet = Http_DownloadFile(strJson.c_str(), strPath.c_str());
 	DownloadFileInfo pDataIn;
 	pDataIn.strFileId = "14cf319c1f06b6306592eb9013788f8a";
 	pDataIn.strFilePath = "D:\\22222222222.pdf";
@@ -1644,24 +782,6 @@ void DataEncToolDlg::GetDownloadReportFile()
 
 void DataEncToolDlg::QuerySealInfo()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/seal/query?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["seal_id"] = "c1ae0a73077c69e93860d7a25a974e10";
-	////std::string strJson = write.write(root);
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-	//string strData;
-	//Http_QuerySealInfo(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
-
 	SealIdInfoReq pDataIn;
 	pDataIn.strSealId = "c1ae0a73077c69e93860d7a25a974e10";
 	SealInfo pDataOut;
@@ -1670,23 +790,6 @@ void DataEncToolDlg::QuerySealInfo()
 
 void DataEncToolDlg::GetSealInfosFromUser()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/seal/getSealInfos?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["user_id"] = "00753189563652526080";
-	////std::string strJson = write.write(root);
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-	//string strData;
-	//Http_GetSealInfosFromUser(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
 	UserIdInfoReq pDataIn;
 	pDataIn.strUserId = "00753189563652526080";
 
@@ -1696,24 +799,6 @@ void DataEncToolDlg::GetSealInfosFromUser()
 
 void DataEncToolDlg::RemoveSealInfo()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/seal/remove?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["seal_id"] = "56a14c43d7b2a53b7eddf8358d0dacaf";
-	////std::string strJson = write.write(root);
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-	//string strData;
-	//Http_RemoveSealInfo(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
-
 	SealIdInfoReq pDataIn;
 	pDataIn.strSealId = "56a14c43d7b2a53b7eddf8358d0dacaf";
 
@@ -1723,24 +808,6 @@ void DataEncToolDlg::RemoveSealInfo()
 
 void DataEncToolDlg::LockSealStatus()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/seal/lock?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["seal_id"] = "56a14c43d7b2a53b7eddf8358d0dacaf";
-	////std::string strJson = write.write(root);
-
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-	//string strData;
-	//Http_LockSealStatus(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
 	SealIdInfoReq pDataIn;
 	pDataIn.strSealId = "8858f20873c59e477a329bf9f370cd49";
 
@@ -1750,23 +817,6 @@ void DataEncToolDlg::LockSealStatus()
 
 void DataEncToolDlg::UnLockSealStatus()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/seal/unlock?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["seal_id"] = "56a14c43d7b2a53b7eddf8358d0dacaf";
-	////std::string strJson = write.write(root);
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-	//string strData;
-	//Http_UnLockSealStatus(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
 	SealIdInfoReq pDataIn;
 	pDataIn.strSealId = "8858f20873c59e477a329bf9f370cd49";
 
@@ -1776,24 +826,6 @@ void DataEncToolDlg::UnLockSealStatus()
 
 void DataEncToolDlg::QueryTemplateInfo()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/template/query?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["template_id"] = "45327f42e3388aa0baa10ac29b6bf8af";
-	////std::string strJson = write.write(root);
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-	//string strData;
-	//Http_QueryTemplateInfo(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
-
 	TemplateIdInfoReq pDataIn;
 	pDataIn.strTemplateId = "45327f42e3388aa0baa10ac29b6bf8af";
 
@@ -1803,24 +835,6 @@ void DataEncToolDlg::QueryTemplateInfo()
 
 void DataEncToolDlg::DeleteTemplateInfo()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/template/delete?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["template_id"] = "45327f42e3388aa0baa10ac29b6bf8af";
-	////std::string strJson = write.write(root);
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-	//string strData;
-	//Http_DeleteTemplateInfo(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
-
 	TemplateIdInfoReq pDataIn;
 	pDataIn.strTemplateId = "45327f42e3388aa0baa10ac29b6bf8af";
 
@@ -1830,24 +844,6 @@ void DataEncToolDlg::DeleteTemplateInfo()
 
 void DataEncToolDlg::LockTemplateStatus()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/template/lock?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["template_id"] = "45327f42e3388aa0baa10ac29b6bf8af";
-	////std::string strJson = write.write(root);
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-	//string strData;
-	//Http_LockTemplateStatus(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
-
 	TemplateIdInfoReq pDataIn;
 	pDataIn.strTemplateId = "45327f42e3388aa0baa10ac29b6bf8af";
 
@@ -1857,23 +853,6 @@ void DataEncToolDlg::LockTemplateStatus()
 
 void DataEncToolDlg::UnLockTemplateStatus()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/template/unlock?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["template_id"] = "45327f42e3388aa0baa10ac29b6bf8af";
-	////std::string strJson = write.write(root);
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-	//string strData;
-	//Http_UnLockTemplateStatus(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
 	TemplateIdInfoReq pDataIn;
 	pDataIn.strTemplateId = "45327f42e3388aa0baa10ac29b6bf8af";
 
@@ -1883,24 +862,6 @@ void DataEncToolDlg::UnLockTemplateStatus()
 
 void DataEncToolDlg::QueryContractInfo()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/contract/query?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["contract_id"] = "f6eb5de0d760538929a78d7c4a85b22f";
-	////std::string strJson = write.write(root);
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-	//string strData;
-	//Http_QueryContractInfo(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
-
 	ContractIdInfoReq pDataIn;
 	pDataIn.strContractId = "ba7b0b35174ab82395d29b47d4ff90b6";
 
@@ -1910,24 +871,6 @@ void DataEncToolDlg::QueryContractInfo()
 
 void DataEncToolDlg::DeleteContractInfo()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/contract/remove?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["contract_id"] = "f6eb5de0d760538929a78d7c4a85b22f";
-	////std::string strJson = write.write(root);
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-	//string strData;
-	//Http_DeleteContractInfo(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
-
 	ContractIdInfoReq pDataIn;
 	pDataIn.strContractId = "f6eb5de0d760538929a78d7c4a85b22f";
 
@@ -1937,25 +880,6 @@ void DataEncToolDlg::DeleteContractInfo()
 
 void DataEncToolDlg::AbolishContractInfo()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/contract/abolish?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["sign_id"] = "fb5f0849216940d9a728443d2e46f02e";
-	////root["user_id"] = "00753189563652526080";
-	////std::string strJson = write.write(root);
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-	//string strData;
-	//Http_AbolishContractInfo(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
-
 	ContractAbolishReq pDataIn;
 	pDataIn.strSignId = "fb5f0849216940d9a728443d2e46f02e";
 	pDataIn.strUserId = "00753189563652526080";
@@ -1966,24 +890,6 @@ void DataEncToolDlg::AbolishContractInfo()
 
 void DataEncToolDlg::ContractRender()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/contract/render?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["contract_id"] = "f6eb5de0d760538929a78d7c4a85b22f";
-	////std::string strJson = write.write(root);
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-	//string strData;
-	//Http_ContractRender(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
-
 	ContractIdInfoReq pDataIn;
 	pDataIn.strContractId = "ba7b0b35174ab82395d29b47d4ff90b6";
 
@@ -1993,66 +899,6 @@ void DataEncToolDlg::ContractRender()
 
 void DataEncToolDlg::ScanContractAdd()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/scan/contract/add?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["contract_id"] = "f1f78e8cf46fe298322c0f3ccdcf9ba4";
-	////root["user_id"] = "00753189563652526080";
-	////root["url"] = "https://www.baidu.com/";
-	////root["expire_time"] = "2020-12-10 23:59:00";
-	////root["qr_code_width"] = 125;
-	////root["qr_code_height"] = 125;
-	////root["remark"] = "测试";
-
-	////Json::Value fields;
-	////Json::Value item;
-	////item["height"] = 113;
-	////item["horizontal"] = 150;
-	////item["page_number"] = 2;
-	////item["seal_id"] = "c1ae0a73077c69e93860d7a25a974e10";
-	////item["vertical"] = 100;
-	////item["width"] = 113;
-	////fields.append(item);
-
-	////root["fields"] = fields;
-
-	////std::string strJson = write.write(root);
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-	//string strData;
-	//Http_ScanContractAdd(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-
-	//Json::Reader reader(Json::Features::strictMode());
-	//Json::Value json_object;
-	//if (!reader.parse(strData.c_str(), json_object))
-	//{
-	//	return;
-	//}
-	//Json::Value fileData = json_object["data"];
-	//if (fileData.isNull() || !fileData.isObject())
-	//{
-	//	return;
-	//}
-	//string strPrepareId = fileData.get("prepare_id", "").asString();
-	//string strImageData = fileData.get("qr", "").asString();
-	//strImageData = strImageData.substr((strImageData.find(","))+1);
-	//const char* szFileData = strImageData.c_str();
-	//QByteArray qbFileData2(szFileData);
-	//QFile fichero2("F:\\Projects\\SignHttp\\qr.png", this);
-	//if (fichero2.open(QIODevice::WriteOnly))
-	//{
-	//	fichero2.write(QByteArray::fromBase64(qbFileData2));
-	//}
-	//fichero2.close();
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
-
 	ScanContractAddReq pDataIn;
 	pDataIn.strContractId = "f1f78e8cf46fe298322c0f3ccdcf9ba4";
 	pDataIn.strUserId = "00753189563652526080";
@@ -2077,42 +923,6 @@ void DataEncToolDlg::ScanContractAdd()
 
 void DataEncToolDlg::ScanContractAddEvent()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/scan/event_cert_contract/add?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["contract_id"] = "f1f78e8cf46fe298322c0f3ccdcf9ba4";
-	////root["user_id"] = "00753189563652526080";
-	////root["url"] = "https://www.baidu.com/";
-	////root["expire_time"] = "2020-12-10 23:59:00";
-	////root["qr_code_width"] = 125;
-	////root["qr_code_height"] = 125;
-	////root["remark"] = "测试";
-
-	////Json::Value fields;
-	////Json::Value item;
-	////item["height"] = 113;
-	////item["horizontal"] = 150;
-	////item["page_number"] = 2;
-	////item["seal_id"] = "c1ae0a73077c69e93860d7a25a974e10";
-	////item["vertical"] = 100;
-	////item["width"] = 113;
-	////fields.append(item);
-
-	////root["fields"] = fields;
-	////std::string strJson = write.write(root);
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-	//string strData;
-	//Http_ScanCertContractAdd(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
-
 	ScanContractAddReq pDataIn;
 	pDataIn.strContractId = "f1f78e8cf46fe298322c0f3ccdcf9ba4";
 	pDataIn.strUserId = "00753189563652526080";
@@ -2137,24 +947,6 @@ void DataEncToolDlg::ScanContractAddEvent()
 
 void DataEncToolDlg::SignScanSign()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/sign/scanSign?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["prepare_id"] = "ccaa318688454f9babe57eee6a329b14";
-	////std::string strJson = write.write(root);
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-	//string strData;
-	//Http_SignScanSign(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
-
 	SignScanReq pDataIn;
 	pDataIn.strPrepareId = "e35674d010084021a2ca6878d5383ec0";
 
@@ -2164,23 +956,6 @@ void DataEncToolDlg::SignScanSign()
 
 void DataEncToolDlg::SignScanSignEvent()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/event_cert_sign/scanSign?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["prepare_id"] = "ccaa318688454f9babe57eee6a329b14";
-	////std::string strJson = write.write(root);
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-	//string strData;
-	//Http_SignScanSignEvent(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
 	SignScanReq pDataIn;
 	pDataIn.strPrepareId = "ec2af96a88434b68b089b39cf28c7397";
 
@@ -2190,24 +965,6 @@ void DataEncToolDlg::SignScanSignEvent()
 
 void DataEncToolDlg::QueryScanContract()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/scan/contract/query?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["prepare_id"] = "f3edeb7b6372486cb9c5750886d7781f";
-	////std::string strJson = write.write(root);
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-	//string strData;
-	//Http_QueryScanContract(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
-
 	ScanContractQueryReq pDataIn;
 	pDataIn.strPrepareId= "f3edeb7b6372486cb9c5750886d7781f";
 
@@ -2217,36 +974,6 @@ void DataEncToolDlg::QueryScanContract()
 
 void DataEncToolDlg::BindContractPhone()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/bind_contract/bind_contract_phone?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["contract_id"] = "f1f78e8cf46fe298322c0f3ccdcf9ba4";
-
-	////Json::Value params;
-
-	////Json::Value item;
-	////item["phone"] = "15118014986";
-	////params.append(item);
-
-	////Json::Value item1;
-	////item1["phone"] = "18682091058";
-	////params.append(item1);
-
-	////root["params"] = params;
-
-	////std::string strJson = write.write(root);
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-	//string strData;
-	//Http_BindContractPhone(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
 	BindContractPhoneReq pDataIn;
 	pDataIn.strContractId = "f1f78e8cf46fe298322c0f3ccdcf9ba4";
 	pDataIn.phoneList.push_back("15118014986");
@@ -2258,25 +985,6 @@ void DataEncToolDlg::BindContractPhone()
 
 void DataEncToolDlg::QueryBindContract()
 {
-	////QString strBaseUrl = "https://open.aiosign.com/api/v1";
-	//QString strUrl = m_strUrl + QString("/bind_contract/query_bind_contract?access_token=%1").arg(m_strToken);
-
-	////Json::Value root;
-	////Json::FastWriter write;
-	////root["phone"] = "15118014986";
-	//////root["contract_name"] = "testcon.pdf";
-	////std::string strJson = write.write(root);
-	//std::string strJson = qstr2str(ui->SrctextEdit->toPlainText());
-	//if (strJson.empty())
-	//{
-	//	QMessageBox::about(this, QString::fromLocal8Bit("提示"), QString::fromLocal8Bit("发送数据不能为空！"));
-	//	return;
-	//}
-	//string strData;
-	//Http_QueryBindContract(strUrl.toStdString().c_str(), m_strAppSecret.toStdString().c_str(), strJson.c_str(), strData);
-	//ui->EnctextEdit->clear();
-	//ui->EnctextEdit->setText(str2qstr(strData));
-
 	BindContractQueryReq pDataIn;
 	pDataIn.strPhone = "15118014986";
 	//pDataIn.stContractName = "testcon.pdf";  //非必填

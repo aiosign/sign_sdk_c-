@@ -5,6 +5,8 @@
 #include "json/value.h"
 #include "json/writer.h"
 #include "json/reader.h"
+#include "IniFileOpt.h"
+#include "MyGlobal.h"
 
 #include "..\\SealLog\SealLog.h"
 
@@ -1012,32 +1014,41 @@ std::string CHttp::UploadFile(const std::string & strUrl, const std::string & st
 	return std::move(Data);
 }
 
-void CHttp::GetFileAndSealInfo(const std::string & strSrc, FileAndSealInfo & sealInfo)
+//void CHttp::GetFileAndSealInfo(const std::string & strSrc, FileAndSealInfo & sealInfo)
+//{
+//	Json::Value root;
+//	Json::FastWriter writer;
+//
+//	Json::Reader reader(Json::Features::strictMode());
+//	Json::Value json_object;
+//	if (!reader.parse(strSrc.c_str(), json_object))
+//	{
+//		return ;
+//	}
+//
+//	sealInfo.strFilePath = json_object.get("file_path", "").asString();
+//	sealInfo.strFileName = json_object.get("file_name", "").asString();
+//	sealInfo.strFileType = json_object.get("file_type", "").asString();
+//	sealInfo.strUserId = json_object.get("user_id", "").asString();
+//
+//	Json::Value sealDataValue = json_object["sealInfo"];
+//	if (sealDataValue.isNull() || !sealDataValue.isObject())
+//	{
+//		return;
+//	}
+//	sealInfo.strSealName = sealDataValue.get("seal_name", "").asString();
+//	sealInfo.strSealType = sealDataValue.get("seal_type", "").asString();
+//	sealInfo.strSealSize = sealDataValue.get("size", "").asString();
+//	sealInfo.strDescription = sealDataValue.get("description", "").asString();
+//}
+
+std::string CHttp::GetRequestData(const char* strUrl, const char* szJsonData)
 {
-	Json::Value root;
-	Json::FastWriter writer;
-
-	Json::Reader reader(Json::Features::strictMode());
-	Json::Value json_object;
-	if (!reader.parse(strSrc.c_str(), json_object))
-	{
-		return ;
-	}
-
-	sealInfo.strFilePath = json_object.get("file_path", "").asString();
-	sealInfo.strFileName = json_object.get("file_name", "").asString();
-	sealInfo.strFileType = json_object.get("file_type", "").asString();
-	sealInfo.strUserId = json_object.get("user_id", "").asString();
-
-	Json::Value sealDataValue = json_object["sealInfo"];
-	if (sealDataValue.isNull() || !sealDataValue.isObject())
-	{
-		return;
-	}
-	sealInfo.strSealName = sealDataValue.get("seal_name", "").asString();
-	sealInfo.strSealType = sealDataValue.get("seal_type", "").asString();
-	sealInfo.strSealSize = sealDataValue.get("size", "").asString();
-	sealInfo.strDescription = sealDataValue.get("description", "").asString();
+	char* szUtf8PostData = GBKToUTF8(szJsonData);//GB2312中文信息转Utf8
+	string strSign = GetSignData(szUtf8PostData, CMyGlobal::m_szAppSecret);
+	string strResponseUtf8Data = RequestHttpsJsonInfo1(strUrl, Hr_Post, strSign, szUtf8PostData);
+	string strData = UTF8ToGBK(strResponseUtf8Data.c_str());//Utf8中文信息转GB2312
+	return strData;
 }
 
 // UTF-8转为GBK

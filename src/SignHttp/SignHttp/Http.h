@@ -35,19 +35,19 @@ enum HttpRequest
 	Hr_Post
 };
 
-typedef struct _FileAndSealInfo
-{
-	string strFilePath;
-	string strFileName;
-	string strFileType;
-	string strFileId;
-	string strUserId;
-	string strSealName;
-	string strSealType;
-	string strSealSize;
-	string strDescription;
-
-}FileAndSealInfo;
+//typedef struct _FileAndSealInfo
+//{
+//	string strFilePath;
+//	string strFileName;
+//	string strFileType;
+//	string strFileId;
+//	string strUserId;
+//	string strSealName;
+//	string strSealType;
+//	string strSealSize;
+//	string strDescription;
+//
+//}FileAndSealInfo;
 
 class CHttp
 {
@@ -88,7 +88,9 @@ public:
 	std::string UploadFile(const std::string& strUrl, const std::string& strFilePath, const std::string& strFileName, const std::string& strFileType, const std::string& strUserId);
 
 	//文件上传和增加印章接口
-	void GetFileAndSealInfo(const std::string& strSrc, FileAndSealInfo& sealInfo);
+	//void GetFileAndSealInfo(const std::string& strSrc, FileAndSealInfo& sealInfo);
+
+	std::string GetRequestData(const char* strUrl,const char* szJsonData);
 
 protected:
 	// 关闭句柄 

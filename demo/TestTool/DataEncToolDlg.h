@@ -4,6 +4,8 @@
 #include <QDialog>
 #include "ui_DataEncToolDlg.h"
 #include <string>
+#include "RequestDefine.h"
+#include "ResponseDefine.h"
 using namespace std;
 
 

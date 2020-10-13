@@ -77,9 +77,6 @@ SIGNHTTP int Http_Init();
 /*获取TOKEN*/
 SIGNHTTP int Http_GetToken(AppInfo* pDataIn, TokenResponse* pDataOut);
 
-//对外提供加密接口
-SIGNHTTP const char* Http_GetSignData(const std::string& strJson, const std::string& secret_key);
-
 /*获取注册个人信息并申请证书*/
 SIGNHTTP int Http_RegisterPersonalInfo(PersonalUserInfo* pDataIn, RegisterResponse* pDataOut);
 
